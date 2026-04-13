@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fabryka Cukierków</title>
+    <link rel="stylesheet" href="styl10.css">
 </head>
 <body>
-    
+      <section id="lewygorny"><a href="zamowienie.html" id="zamn">zamow</a></section>
+    <section id="prawydolny"><a href="index.html"><img src="cuks.jpg" alt="nasze logo"></a></section>
+    <header><h1>Strefa zamówień</h1></header>
+    <main>
+        <section id="lawydolny">
+            <p>numer kształtu cukierka</p><br>
+            <input type="number" id="ksztalt" max="3" min="1"><br>
+            <p>wybierz swoj kolor, podaj RGB: </p><br>
+            R<input type="number" max="255" id="r" >
+            G<input type="number" max="255" id="g">
+            B<input type="number" max="255" id="b">
+            <button onclick="zamow()">Złóż zamówienie</button>
+            <p id="wynik">Twoje Zamówienie:</p>
+            <button id="btnKolor">Kolor</button>
+        </section>
+        <section id="prawydolny">
+            <h2>Nasza oferta</h2>
+            <table>
+                <tr><th>Kształty</th><th rowspan="2">Możesz zamówić <br> dowolny kolor cukierka</th></tr>
+                <tr><td>
+                    <ol>
+                        <li>cytryna</li>
+                        <li>liść</li>   
+                        <li>banan</li>
+                    </ol>
+                </td></tr>
+            </table>
+        </section>
+    </main>
+    <footer><p>Autor strony: Marcel "Moreniak" Wilgorski</p></footer>
+    <script>
+        function zamow() {
+            let ksztalt = document.getElementById("ksztalt").value;
+            let r = document.getElementById("r").value;
+            let g = document.getElementById("g").value;
+            let b = document.getElementById("b").value;
+            let wynik = document.getElementById("wynik");
+            let btnKolor = document.getElementById("btnKolor");
+            let nazwa = "";
+            if (ksztalt == "1") {
+                nazwa = "cytryna";
+            } else if (ksztalt == "2") {
+                nazwa = "liść";
+            } else if (ksztalt == "3") {
+                nazwa = "bananananana";}
+            wynik.innerHTML = "Wybraleś cukierek " + nazwa;
+            btnKolor.style.backgroundColor = "rgb(" + r + ", " + g + ", " + b + ")";
+        }
+    </script>
 </body>
 </html>
